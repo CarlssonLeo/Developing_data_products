@@ -12,15 +12,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Setup
+First we load the leaflet package
 
-
-```{r cars, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(leaflet)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
+## A nice little map
+and then we create a nice little map
 
 ```{r pressure, echo=FALSE}
 leaflet() %>% 
@@ -29,4 +28,3 @@ leaflet() %>%
 		   popup = "Best town")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

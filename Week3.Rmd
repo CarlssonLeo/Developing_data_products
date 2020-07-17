@@ -1,0 +1,26 @@
+---
+title: "Week3"
+author: "Leo Carlsson"
+date: "7/17/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+library(plotly)
+library(AmesHousing)
+ames <- make_ames()
+library(tidyverse)
+ames <- as.tibble(ames) %>% select(SalePrice = Sale_Price, year_sold = Year_Sold, Sale_Condition)
+```
+## Intro
+This is the document for week three of the JH Coursera course developing data products, where I make a presentation and a plotly plot. I use the Ames housing dataset to plot the year sold, the sale price, coloured by it's condition. 
+
+## Plot
+```{r cars, echo = FALSE}
+plot_ly(ames, x = ~year_sold, y= ~SalePrice, color = ~Sale_Condition)
+```
