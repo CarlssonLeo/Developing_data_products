@@ -1,0 +1,30 @@
+---
+title: "Week4"
+author: "Leo Carlsson"
+date: "7/18/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+qog <- read_rds("./Week4/data/qog.rds")
+```
+
+## A problem
+How to teach students concept that are hard to grasp? How a log transformation affects a regression model assumption is often hard to grasp by intuition, and while it is one of the most used treatments to non-normal data, it's often not really understood. 
+
+## Its often hard to differentiate what this is...
+```{r message=FALSE, warning=FALSE}
+qog %>% ggplot(aes(log(mad_gdppc)))+
+                geom_histogram()
+```
+
+## Compared to this
+```{r message=FALSE, warning=FALSE}
+qog %>% ggplot(aes(mad_gdppc))+
+                geom_histogram()
+```
+
+## The solution?
+A webapp! By letting students visualise the difference the difference of a common skewed data in a regression with or without a log-transformations, they better understand the difference. 

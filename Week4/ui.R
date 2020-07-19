@@ -8,26 +8,29 @@
 #
 
 library(shiny)
+library(tidyverse)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("How Log Transformations affect a bivariate regression"),
+    h5("This is a demonstration on how a log transformation affects a regression"),
+    div("This demonstration uses Quality of Government institute data to show how a log transformation affects a regression. GDP per capita is an often skewed variable, and students often have a trouble understanding how regression assumptions acctually affect a regression. Using Gdp/c as DV and level of education as IV, this app shows how a log transformation of a skewed variable affects the bivariate regression."),
 
     # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
+            h3("Check the checkbox to a apply a log transformation to the dependent variable"),
+            checkboxInput("logTrans", 
+                          "Log Transform Variable", 
+                          value = FALSE),
         ),
 
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot")
+            h3("Regression"),
+            plotOutput("regPlot")
         )
     )
 ))
